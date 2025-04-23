@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RentalEase - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>RentalEase</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="available-listings.html">Available Properties</a></li>
+                <li><a href="list-property.html">List a Property</a></li>
+                <li><a href="map.html">View Map</a></li>
+                <li><a href="signup.html">Sign Up</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="about.html">About</a></li> 
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Find Your Perfect Rental Apartment</h2>
+        <p>Browse, filter, and book apartments with ease.</p>
+        <input type="text" placeholder="Search for properties...">
+        <button>Search</button>
+    </section>
+
+    <section class="properties">
+        <h2>Featured Listings</h2>
+        <div class="property-list">
+            <!-- Property 1 -->
+            <div class="property">
+                <img src="images/property1.jpg" alt="Apartment 1">
+                <h3>Modern Apartment</h3>
+                <p>Location: New York, NY</p>
+                <p>Price: $1,500/month</p>
+            </div>
+            <!-- Property 2 -->
+            <div class="property">
+                <img src="images/apartment2.jpg" alt="Apartment 2">
+                <h3>Cozy Studio</h3>
+                <p>Location: Los Angeles, CA</p>
+                <p>Price: $1,200/month</p>
+            </div>
+            <!-- Property 3 -->
+            <div class="property">
+                <img src="images/apartment3.jpg" alt="Apartment 3">
+                <h3>Luxury Condo</h3>
+                <p>Location: Miami, FL</p>
+                <p>Price: $2,500/month</p>
+            </div>
+            <!-- Property 4 -->
+            <div class="property">
+                <img src="images/apartment4.jpg" alt="Apartment 4">
+                <h3>Spacious Loft</h3>
+                <p>Location: Chicago, IL</p>
+                <p>Price: $1,800/month</p>
+            </div>
+            <!-- Property 5 -->
+            <div class="property">
+                <img src="images/apartment5.jpg" alt="Apartment 5">
+                <h3>Bright One-Bedroom</h3>
+                <p>Location: San Francisco, CA</p>
+                <p>Price: $2,200/month</p>
+            </div>
+            <!-- Property 6 -->
+            <div class="property">
+                <img src="images/apartment6.jpg" alt="Apartment 6">
+                <h3>Charming House</h3>
+                <p>Location: Austin, TX</p>
+                <p>Price: $2,000/month</p>
+            </div>
+            <!-- Property 7 -->
+            <div class="property">
+                <img src="images/apartment7.jpg" alt="Apartment 7">
+                <h3>Stylish Loft</h3>
+                <p>Location: Seattle, WA</p>
+                <p>Price: $1,750/month</p>
+            </div>
+            <!-- Property 8 -->
+            <div class="property">
+                <img src="images/apartment8.jpg" alt="Apartment 8">
+                <h3>Elegant Penthouse</h3>
+                <p>Location: Boston, MA</p>
+                <p>Price: $3,000/month</p>
+            </div>
+            
+            
+        </div>
+        <h2>Find Your Location</h2>
+        <button onclick="showMap()" class="btn">📍 Show My Location</button>
+        <div id="map" style="height: 400px; width: 100%; margin-top: 20px;"></div>
+
+<!-- Leaflet scripts at bottom -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+function showMap() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            const map = L.map('map').setView([lat, lon], 13);
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            L.marker([lat, lon]).addTo(map)
+                .bindPopup('You are here!')
+                .openPopup();
+        }, function(error) {
+            alert('Unable to retrieve location: ' + error.message);
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+</script>
+
+    </section>
+
+    <footer>
+        <p>&copy; 2025 RentalEase. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
