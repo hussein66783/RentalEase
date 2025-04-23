@@ -2,13 +2,6 @@
 
 **RentalEase** is a dynamic web-based apartment rental platform that simplifies the rental process for both tenants and landlords. It includes a clean user interface, authentication system, a property listing manager, and a live map that displays the user's location.
 
----
-
-## 📸 Screenshots
-
-| Homepage               | Login Page              | Listings Page           | Map Page                |
-|------------------------|-------------------------|--------------------------|-------------------------|
-| ![Homepage](images/ss1_homepage.png) | ![Login](images/ss2_login.png) | ![Listings](images/ss3_listings.png) | ![Map](images/ss4_map.png) |
 
 ---
 
