@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -19,6 +19,11 @@
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .property-card:hover {
+            transform: scale(1.02);
         }
 
         .property-card img {
@@ -30,6 +35,12 @@
 
         .property-card h3 {
             margin: 10px 0;
+        }
+
+        .property-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
     </style>
 </head>
@@ -48,86 +59,139 @@
     </header>
 
     <section class="property-listings">
-        <h2>Available Properties</h2>
+        <h2>Available Properties in Poland</h2>
         <div class="property-container">
-            <!-- Property 1 -->
             <div class="property-card">
-                <img src="images/property1.jpg" alt="Luxury Apartment in New York">
-                <h3>Luxury Apartment in New York</h3>
-                <p><strong>Price:</strong> $3200</p>
-                <p><strong>Location:</strong> New York, NY</p>
-                <p>A stunning 2-bedroom apartment with skyline views.</p>
+                <a href="property1.html">
+                    <img src="images/property1.jpg" alt="Lublin Apartment">
+                    <h3>Modern Apartment in Lublin</h3>
+                    <p><strong>Price:</strong> 4,000 PLN</p>
+                    <p><strong>Location:</strong> Lublin</p>
+                    <p>Stylish 2-bedroom apartment in the heart of the city.</p>
+                </a>
             </div>
-            <!-- Property 2 -->
+
             <div class="property-card">
-                <img src="images/property2.jpg" alt="Modern Condo in Los Angeles">
-                <h3>Modern Condo in Los Angeles</h3>
-                <p><strong>Price:</strong> $4500</p>
-                <p><strong>Location:</strong> Los Angeles, CA</p>
-                <p>Spacious 3-bedroom condo near downtown.</p>
+                <a href="property2.html">
+                    <img src="images/property2.jpg" alt="Kraków Condo">
+                    <h3>Student Condo in Kraków</h3>
+                    <p><strong>Price:</strong> 1,500 PLN</p>
+                    <p><strong>Location:</strong> Kraków</p>
+                    <p>Large 3-bedroom condo near the main square.</p>
+                </a>
             </div>
-            <!-- Property 3 -->
+
             <div class="property-card">
-                <img src="images/property3.jpg" alt="Cozy Studio in San Francisco">
-                <h3>Cozy Studio in San Francisco</h3>
-                <p><strong>Price:</strong> $2800</p>
-                <p><strong>Location:</strong> San Francisco, CA</p>
-                <p>A perfect studio for young professionals.</p>
+                <a href="property3.html">
+                    <img src="images/property3.jpg" alt="Gdańsk Studio">
+                    <h3>Luxurious Apartment in Gdańsk</h3>
+                    <p><strong>Price:</strong> 2,400 PLN</p>
+                    <p><strong>Location:</strong> Gdańsk</p>
+                    <p>Cozy studio apartment near the beach.</p>
+                </a>
             </div>
-            <!-- Property 4 -->
+
             <div class="property-card">
-                <img src="images/property4.jpg" alt="Family Home in Chicago">
-                <h3>Family Home in Chicago</h3>
-                <p><strong>Price:</strong> $3700</p>
-                <p><strong>Location:</strong> Chicago, IL</p>
-                <p>A beautiful 4-bedroom home with a backyard.</p>
+                <a href="property4.html">
+                    <img src="images/property4.jpg" alt="Wrocław Home">
+                    <h3>Penthouse in Wrocław</h3>
+                    <p><strong>Price:</strong> 5,100 PLN</p>
+                    <p><strong>Location:</strong> Wrocław</p>
+                    <p>Spacious home with 4 bedrooms and garden space.</p>
+                </a>
             </div>
-            <!-- Property 5 -->
+
             <div class="property-card">
-                <img src="images/property5.jpg" alt="Seaside Villa in Miami">
-                <h3>Seaside Villa in Miami</h3>
-                <p><strong>Price:</strong> $5500</p>
-                <p><strong>Location:</strong> Miami, FL</p>
-                <p>A luxurious villa with beach access.</p>
+                <a href="property5.html">
+                    <img src="images/property5.jpg" alt="Łódź Apartment">
+                    <h3>Affordable Flat in Łódź</h3>
+                    <p><strong>Price:</strong> 1,900 PLN</p>
+                    <p><strong>Location:</strong> Łódź</p>
+                    <p>1-bedroom apartment in a quiet neighborhood.</p>
+                </a>
             </div>
-            <!-- Property 6 -->
+
             <div class="property-card">
-                <img src="images/property6.jpg" alt="Penthouse in Seattle">
-                <h3>Penthouse in Seattle</h3>
-                <p><strong>Price:</strong> $6000</p>
-                <p><strong>Location:</strong> Seattle, WA</p>
-                <p>Top-floor penthouse with breathtaking city views.</p>
+                <a href="property6.html">
+                    <img src="images/property6.jpg" alt="Poznań Penthouse">
+                    <h3>RenovatedAapartment in Poznań</h3>
+                    <p><strong>Price:</strong> 6,500 PLN</p>
+                    <p><strong>Location:</strong> Poznań</p>
+                    <p>Luxury top-floor penthouse with city views.</p>
+                </a>
             </div>
-            <!-- Property 7 -->
+
             <div class="property-card">
-                <img src="images/property7.jpg" alt="Rustic Cabin in Denver">
-                <h3>Rustic Cabin in Denver</h3>
-                <p><strong>Price:</strong> $2200</p>
-                <p><strong>Location:</strong> Denver, CO</p>
-                <p>A peaceful retreat in the mountains.</p>
+                <a href="property7.html">
+                    <img src="images/property7.jpg" alt="Katowice Cabin">
+                    <h3>Nice view room in Katowice</h3>
+                    <p><strong>Price:</strong> 2,300 PLN</p>
+                    <p><strong>Location:</strong> Katowice</p>
+                    <p>Charming wooden cabin near the forest.</p>
+                </a>
             </div>
-            <!-- Property 8 -->
+
             <div class="property-card">
-                <img src="images/property8.jpg" alt="Downtown Apartment in Austin">
-                <h3>Downtown Apartment in Austin</h3>
-                <p><strong>Price:</strong> $3100</p>
-                <p><strong>Location:</strong> Austin, TX</p>
-                <p>A modern apartment near nightlife and restaurants.</p>
+                <a href="property8.html">
+                    <img src="images/property8.jpg" alt="Szczecin Apartment">
+                    <h3>Center Apartment in Szczecin</h3>
+                    <p><strong>Price:</strong> 3,100 PLN</p>
+                    <p><strong>Location:</strong> Szczecin</p>
+                    <p>Modern 2-bedroom apartment close to public transport.</p>
+                </a>
             </div>
-            <!-- Property 9 -->
+
             <div class="property-card">
-                <img src="images/property9.jpg" alt="Suburban House in Atlanta">
-                <h3>Suburban House in Atlanta</h3>
-                <p><strong>Price:</strong> $2900</p>
-                <p><strong>Location:</strong> Atlanta, GA</p>
-                <p>A cozy home with a large front yard.</p>
+                <a href="property9.html">
+                    <img src="images/property9.jpg" alt="Białystok House">
+                    <h3>Studio Apartment in Białystok</h3>
+                    <p><strong>Price:</strong> 2,800 PLN</p>
+                    <p><strong>Location:</strong> Białystok</p>
+                    <p>Peaceful 3-bedroom home with a private yard.</p>
+                </a>
             </div>
         </div>
+    
+    <h2>Find Your Location</h2>
+        <button onclick="showMap()" class="btn">📍 Show My Location</button>
+        <div id="map" style="height: 400px; width: 100%; margin-top: 20px; border-radius: 10px;"></div>
     </section>
 
     <footer>
         <p>&copy; 2025 RentalEase. All rights reserved.</p>
     </footer>
+
+    <!-- Leaflet map scripts -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        function showMap() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+
+                    const map = L.map('map').setView([lat, lon], 13);
+
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+
+                    L.marker([lat, lon]).addTo(map)
+                        .bindPopup('You are here!')
+                        .openPopup();
+                }, function(error) {
+                    alert('Unable to retrieve location: ' + error.message);
+                });
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+    </script>
+
+</body>
+</html>
+
 
 </body>
 </html>
