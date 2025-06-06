@@ -1,148 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RentalEase - Home</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RentalEase - Find Your Next Home</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet" />
+
+    <style>
+      /* Floating Video Popup styles */
+      .video-popup {
+        position: fixed;
+        bottom: 20px;
+        left: 20px;
+        background: #fff;
+        padding: 10px;
+        border-radius: 12px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        display: none;
+        z-index: 9999;
+        max-width: 320px;
+      }
+      .video-popup video {
+        width: 100%;
+        border-radius: 10px;
+        display: block;
+      }
+      .video-btn {
+        background: #007bff;
+        color: #fff;
+        border: none;
+        padding: 6px 12px;
+        margin-top: 6px;
+        margin-right: 5px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 14px;
+        user-select: none;
+        transition: background 0.3s ease;
+      }
+      .video-btn:hover {
+        background: #0056b3;
+      }
+      .close-btn {
+        background: #dc3545;
+      }
+      .close-btn:hover {
+        background: #a71d2a;
+      }
+      #openVideoBtn {
+        position: fixed;
+        bottom: 100px;
+        left: 20px;
+        z-index: 9998;
+      }
+    </style>
 </head>
 <body>
-
     <header>
-        <h1>RentalEase</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="available-listings.html">Available Properties</a></li>
-                <li><a href="list-property.html">List a Property</a></li>
-                <li><a href="map.html">View Map</a></li>
-                <li><a href="signup.html">Sign Up</a></li>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About</a></li> 
-            </ul>
-        </nav>
+        <div class="container">
+            <h1>RentalEase</h1>
+            <nav>
+                <ul>
+                    <li><a href="available-listings.html">Available Properties</a></li>
+                    <li><a href="list-property.html">List a Property</a></li>
+                    <li><a href="map.html">View Map</a></li>
+                    <li><a href="view-listed-properties.html">View Listed Properties</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="about.html">About</a></li> 
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section class="hero">
-        <h2>Find Your Perfect Rental Apartment</h2>
-        <p>Browse, filter, and book apartments with ease.</p>
-        <input type="text" placeholder="Search for properties...">
-        <button>Search</button>
+    <!-- Floating Video Popup -->
+    <div id="videoPopup" class="video-popup" aria-hidden="true" role="dialog" aria-label="Promo Video">
+        <video id="popupVideo" width="300" controls>
+            <source src="videos/promo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+        <div>
+            <button onclick="toggleMute()" class="video-btn" aria-pressed="false" id="muteBtn">🔇 Mute</button>
+            <button onclick="closeVideo()" class="video-btn close-btn" aria-label="Close video popup">✖ Close</button>
+        </div>
+    </div>
+
+    <!-- Toggle Button -->
+    <button id="openVideoBtn" onclick="openVideo()" class="video-btn open-btn" aria-haspopup="dialog" aria-controls="videoPopup">
+        🎥 Watch Promo
+    </button>
+
+    <!-- Hero Section -->
+    <section class="hero-header d-flex align-items-center justify-content-center text-center text-white flex-column">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-3">Find Your Perfect Rental</h1>
+            <p class="lead mb-4">Easy search. Quick booking. Direct connection with landlords.</p>
+
+            <!-- Aesthetic Search Bar -->
+            <form class="search-form d-flex justify-content-center" action="available-listings.html" method="GET">
+                <input
+                    class="form-control custom-search-input"
+                    type="search"
+                    name="query"
+                    placeholder="Search by location..."
+                    aria-label="Search"
+                />
+                <button class="btn custom-search-button" type="submit">Search</button>
+            </form>
+        </div>
     </section>
 
     <section class="properties">
-        <h2>Featured Listings in Poland</h2>
-        <div class="property-list">
-            <a href="property1.html">
+        <div class="container">
+            <h3>Featured Listings</h3>
+            <div class="property-grid">
                 <div class="property">
-                    <img src="images/property1.jpg" alt="Apartment in Warsaw">
-                    <h3>Modern Apartment</h3>
-                    <p>Location: Warsaw</p>
-                    <p>Price: 3,000 zł/month</p>
+                    <a href="property1.html">
+                        <img src="images/property1.jpg" alt="Property 1" />
+                        <h4>Modern Apartment in Dar</h4>
+                        <p>zł 2500/month – Masaki</p>
+                    </a>
                 </div>
-            </a>
-
-            <a href="property2.html">
                 <div class="property">
-                    <img src="images/apartment2.jpg" alt="Studio in Kraków">
-                    <h3>Cozy Studio</h3>
-                    <p>Location: Kraków</p>
-                    <p>Price: 2,200 zł/month</p>
+                    <a href="property3.html">
+                        <img src="images/property3.jpg" alt="Property 2" />
+                        <h4>Studio in Mikocheni</h4>
+                        <p>zł 2250/month – Mikocheni</p>
+                    </a>
                 </div>
-            </a>
-
-            <a href="property3.html">
                 <div class="property">
-                    <img src="images/apartment3.jpg" alt="Condo in Wrocław">
-                    <h3>Luxury Condo</h3>
-                    <p>Location: Wrocław</p>
-                    <p>Price: 4,000 zł/month</p>
+                    <a href="property4.html">
+                        <img src="images/property4.jpg" alt="Property 3" />
+                        <h4>3 Bedroom House</h4>
+                        <p>zł 2900/month – Kinondoni</p>
+                    </a>
                 </div>
-            </a>
-
-            <a href="property4.html">
-                <div class="property">
-                    <img src="images/apartment4.jpg" alt="Loft in Gdańsk">
-                    <h3>Spacious Loft</h3>
-                    <p>Location: Gdańsk</p>
-                    <p>Price: 3,500 zł/month</p>
-                </div>
-            </a>
-
-            <a href="property5.html">
-                <div class="property">
-                    <img src="images/apartment5.jpg" alt="One-Bedroom in Poznań">
-                    <h3>Bright One-Bedroom</h3>
-                    <p>Location: Poznań</p>
-                    <p>Price: 2,800 zł/month</p>
-                </div>
-            </a>
-
-            <a href="property6.html">
-                <div class="property">
-                    <img src="images/apartment6.jpg" alt="House in Łódź">
-                    <h3>Charming House</h3>
-                    <p>Location: Łódź</p>
-                    <p>Price: 3,700 zł/month</p>
-                </div>
-            </a>
-
-            <a href="property7.html">
-                <div class="property">
-                    <img src="images/apartment7.jpg" alt="Loft in Katowice">
-                    <h3>Stylish Loft</h3>
-                    <p>Location: Katowice</p>
-                    <p>Price: 2,900 zł/month</p>
-                </div>
-            </a>
-
-            <a href="property8.html">
-                <div class="property">
-                    <img src="images/apartment8.jpg" alt="Penthouse in Szczecin">
-                    <h3>Elegant Penthouse</h3>
-                    <p>Location: Szczecin</p>
-                    <p>Price: 5,200 zł/month</p>
-                </div>
-            </a>
+            </div>
         </div>
+    </section>
 
-        <h2>Find Your Location</h2>
-        <button onclick="showMap()" class="btn">📍 Show My Location</button>
-        <div id="map" style="height: 400px; width: 100%; margin-top: 20px; border-radius: 10px;"></div>
+    <section class="features">
+        <div class="container">
+            <h3>Why Choose RentalEase?</h3>
+            <div class="feature-grid">
+                <div class="feature">
+                    <h4>Verified Listings</h4>
+                    <p>All properties are reviewed and verified before they go live.</p>
+                </div>
+                <div class="feature">
+                    <h4>Secure Messaging</h4>
+                    <p>Connect with landlords directly in a secure and private space.</p>
+                </div>
+                <div class="feature">
+                    <h4>Easy Booking</h4>
+                    <p>Reserve your dream apartment online without any hassle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="map-section">
+        <div class="container">
+            <h3>Explore Our Properties on the Map</h3>
+            <div class="map-container">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1952234.7325861715!2d18.145647857160226!3d52.21593360020647!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669c9a4e4d%3A0x40b3c7f28be33c0!2sPoland!5e0!3m2!1sen!2spl!4v1717469034567!5m2!1sen!2spl"
+                    width="100%"
+                    height="400"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 RentalEase. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2025 RentalEase. All rights reserved.</p>
+        </div>
     </footer>
 
-    <!-- Leaflet map scripts -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
-        function showMap() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(function(position) {
-                    const lat = position.coords.latitude;
-                    const lon = position.coords.longitude;
+      const videoPopup = document.getElementById('videoPopup');
+      const video = document.getElementById('popupVideo');
+      const openBtn = document.getElementById('openVideoBtn');
+      const muteBtn = document.getElementById('muteBtn');
 
-                    const map = L.map('map').setView([lat, lon], 13);
+      function openVideo() {
+        videoPopup.style.display = 'block';
+        videoPopup.setAttribute('aria-hidden', 'false');
+        openBtn.style.display = 'none';
+        video.play();
+      }
 
-                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                        attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
-                    }).addTo(map);
+      function closeVideo() {
+        video.pause();
+        videoPopup.style.display = 'none';
+        videoPopup.setAttribute('aria-hidden', 'true');
+        openBtn.style.display = 'block';
+      }
 
-                    L.marker([lat, lon]).addTo(map)
-                        .bindPopup('You are here!')
-                        .openPopup();
-                }, function(error) {
-                    alert('Unable to retrieve location: ' + error.message);
-                });
-            } else {
-                alert("Geolocation is not supported by this browser.");
-            }
-        }
+      function toggleMute() {
+        video.muted = !video.muted;
+        muteBtn.textContent = video.muted ? '🔊 Unmute' : '🔇 Mute';
+        muteBtn.setAttribute('aria-pressed', video.muted);
+      }
     </script>
 
 </body>

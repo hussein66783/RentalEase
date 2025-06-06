@@ -1,41 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>List a Property - RentalEase</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>List a Property - RentalEase</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f2f5f9;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(90deg, #3366ff, #00ccff);
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0, 102, 255, 0.3);
+    }
+
+    header h1 {
+      color: white;
+      font-weight: 700;
+      font-size: 1.8rem;
+      margin: 0;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav a {
+      color: #e0f0ff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .property-form {
+      max-width: 600px;
+      margin: 60px auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .property-form h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #223344;
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .property-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .property-form input,
+    .property-form textarea {
+      padding: 14px 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+
+    .property-form input:focus,
+    .property-form textarea:focus {
+      border-color: #00ccff;
+      outline: none;
+    }
+
+    .property-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .property-form button {
+      padding: 14px;
+      background: linear-gradient(to right, #3366ff, #00ccff);
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .property-form button:hover {
+      background: linear-gradient(to right, #2952cc, #00aacc);
+    }
+
+    .property-form p {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .property-form a {
+      color: #3366ff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .property-form a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.9rem;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 600px) {
+      .property-form {
+        margin: 30px 20px;
+        padding: 20px;
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-    <header>
-        <h1>RentalEase</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="dashboard.html">Dashboard</a></li>
-                <li><a href="list-property.html">List a Property</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <h1>RentalEase</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+        <li><a href="list-property.html">List a Property</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="property-form">
-        <h2>List a Property</h2>
-        <form id="propertyForm">
-            <input type="text" id="propertyTitle" placeholder="Property Title" required>
-            <textarea id="propertyDescription" placeholder="Property Description" required></textarea>
-            <input type="number" id="propertyPrice" placeholder="Price ($)" required>
-            <input type="text" id="propertyLocation" placeholder="Location" required>
-            <input type="file" id="propertyImage" accept="image/*" required>
-            <button type="submit">Submit Property</button>
-        </form>
-    </section>
+  <section class="property-form">
+    <h2>List a New Property</h2>
+    <form method="POST" action="upload-property.php" enctype="multipart/form-data">
+      <input type="text" name="title" placeholder="Title" required />
+      <textarea name="description" placeholder="Description" required></textarea>
+      <input type="text" name="location" placeholder="Location" required />
+      <input type="number" step="0.01" name="price" placeholder="Price in PLN" required />
+      <input type="file" name="image" accept="image/*" required />
+      <button type="submit">List Property</button>
+    </form>
 
-    <script src="app.js"></script>
+    <p><a href="view-listed-properties.html">View Listed Properties</a></p>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 RentalEase. All rights reserved.</p>
-    </footer>
-    
+  <footer>
+    <p>&copy; 2025 RentalEase. All rights reserved.</p>
+  </footer>
+
+  <script src="app.js"></script>
 </body>
 </html>
